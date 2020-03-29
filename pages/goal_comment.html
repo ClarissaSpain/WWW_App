@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <link rel="stylesheet" href="../myStyles.css">
+  <link href="../lib/distribute/nouislider.css" rel="stylesheet">
+  <script src="../lib/distribute/nouislider.js"></script>
+  <title>Goal Comments</title>
+
+</head>
+
+<body>
+  <h1>Daily Check In</h1>
+
+  <div id="horizontal-ltr"></div>
+  <br>
+  <br>
+  <div class="comment_container">
+    <div class="comments">
+      <textarea id="title" name="name" rows="8" cols="80" onkeyup="Allow()" placeholder="Actions towards goal..."></textarea>
+      <br>
+      <br>
+      <textarea id="title" name="name" rows="8" cols="80" onkeyup="Allow()" placeholder="Additional Comments..."></textarea>
+      <br>
+      <input type="submit" value="Post" onclick="insert()" name="">
+    </div>
+    <div id="display" class="">
+
+    </div>
+  </div>
+  <script>
+    var slider = document.getElementById('horizontal-ltr');
+
+    noUiSlider.create(slider, {
+      start: [20, 80],
+      connect: true,
+      direction: "ltr",
+      orientation: "horizontal",
+      range: {
+        'min': 0,
+        'max': 100
+      }
+    });
+
+    var titles = [];
+    var titleInput = document.getElementById("title");
+    var messageBox = document.getElementById("display");
+
+    function Allow() {
+      if (!user.title.value.match(/[a-zA-Z]$/) && user.title.value != "") {
+        user.title.value = "";
+        alert("Please Enter only alphabets");
+      }
+      window.location.reload()
+    }
+
+    function insert() {
+      titles.push(titleInput.value);
+      clearAndShow();
+    }
+
+    function clearAndShow() {
+      titleInput.value = "";
+      messageBox.innerHTML = "";
+      messageBox.innerHTML += " " + titles.join("<br/> ") + "<br/>";
+    }
+  </script>
+</body>
+
+</html>
