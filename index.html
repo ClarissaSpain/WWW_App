@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../myStyles.css">
-    <title>Welcome!</title>
-  </head>
-  <body>
-    Click on the links below to get to the other pages.
-  <br>
-  <a href="../pages/goal_comment.html">Goal Comment</a>
-  <br>
-  <a href="../pages/goal_tracker.html">Goal Tracker</a>
 
-  </body>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./myStyles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+  <title>Welcome!</title>
+</head>
+
+<body>
+  <div class="center">
+    <br>
+    <h1>Welcome</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- <h3>First Name</h3 style="text-align: left;"> -->
+    <h3><label for="First"></label>
+      <input type="text" name="First Name" value="" placeholder="First Name" id="First"></h3>
+    <h3><label for="Last"></label>
+      <input type="text" name="" value="" placeholder="Last Name"id="Last"></h3>
+
+    <br>
+    <!-- <label for="Goal">Your Goal</label> -->
+    <textarea name="name" rows="8" cols="80" placeholder="Write your Goal here..."id="Goal"></textarea>
+    <br>
+    <br>
+    <a href="../pages/goal_tracker.html" class="myButton" onclick="pullData()">REGISTER</a>
+  </div>
+
+</body>
+
 </html>
