@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" href="css/myStyles.css">
+  	<link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+        <title>Welcome</title>
+    </head>
+
+    <body>
+       <div class="center">
+    <br>
+    <h1>Welcome</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- <h3>First Name</h3 style="text-align: left;"> -->
+    <h3><label for="First"></label>
+      <input type="text" name="First Name" value="" placeholder="First Name" id="First"></h3>
+    <h3><label for="Last"></label>
+      <input type="text" name="" value="" placeholder="Last Name" id="Last"></h3>
+
+    <br>
+    <!-- <label for="Goal">Your Goal</label> -->
+    <textarea name="name" rows="8" cols="80" placeholder="Write your Goal here..."id="Goal"></textarea>
+    <br>
+    <br>
+    <!-- <button type="button" name="button" id="Register" onclick="doFirst()">REGISTER</button> -->
+
+    <a href="./pages/goal_tracker.html" class="myButton" onclick="doFirst()">REGISTER</a>
+  </div>
+
+
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/myScript.js"></script>
+
+
+
+
+  <script>
+  var app = {
+     document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+   }
+  onDeviceReady: function() {
+         this.receivedEvent('deviceready');
+     }
+  // app.initialize();
+
+  function doFirst(){
+    document.getElementById("Register");
+    document.addEventListener("load", saveInfo, false);
+    var FirstName = document.getElementById("First").value;
+    window.localStorage.setItem("First", FirstName);
+    var LastName = document.getElementById("Last").value;
+    window.localStorage.setItem("Last", LastName);
+    var Goal = document.getElementById("Goal").value;
+    window.localStorage.setItem("Goal", Goal);
+
+
+  }
+  window.addEventListener("load", doFirst, false);
+
+  </script>
+
+
+
+
+    </body>
+</html>

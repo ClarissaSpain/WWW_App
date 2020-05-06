@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/myStyles.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+    <title>Reveal Database</title>
+  </head>
+  <body>
+
+
+  <div class="center">
+    <button type="button" name="button" onclick="showStuff()" class="myButton">Show me some Data</button>
+    <h3 id = "show"></h3>
+  </div>
+
+<script type="text/javascript" src="../js/myScript.js"></script>
+
+<script>
+// app.initialize();
+function showStuff(){
+  var show = document.getElementById("show");
+  var allStuff = "First Name: "+localStorage.getItem("First") + "<br> Last Name: "+localStorage.getItem("Last") + "<br> Your Goal: "+localStorage.getItem("Goal")+ "<br> Your Actions made towards goal: "+localStorage.getItem("Action") + "<br> Your additional Comments: "+localStorage.getItem("Comment");
+  show.innerHTML = allStuff;
+
+}
+</script>
+  </body>
+</html>
